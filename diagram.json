@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -3, "left": 300.4, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -200.1,
+      "left": 5.5,
+      "attrs": { "distance": "2" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic2",
+      "top": -200.1,
+      "left": 235.9,
+      "attrs": { "distance": "400" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 281.54,
+      "left": 441.83,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 76.7,
+      "left": 358.7,
+      "rotate": 90,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 76.9,
+      "left": 486.3,
+      "rotate": 270,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 138.35,
+      "left": 403.2,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 138.35,
+      "left": 528,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "bb1:bp.1", "red", [ "v58.1", "h12.8" ] ],
+    [ "bb1:bp.25", "bb1:tp.25", "red", [ "v-0.9", "h40", "v-172.8" ] ],
+    [ "uno:GND.2", "bb1:bn.2", "black", [ "v48.5", "h176.1" ] ],
+    [ "bb1:bn.25", "bb1:tn.25", "black", [ "v-1.3", "h30.4", "v-172.8" ] ],
+    [ "ultrasonic1:GND", "uno:GND.1", "black", [ "v67.2", "h8.4" ] ],
+    [ "ultrasonic2:GND", "uno:GND.1", "black", [ "v67.2", "h-222" ] ],
+    [ "ultrasonic1:TRIG", "uno:7", "green", [ "v96", "h105.2" ] ],
+    [ "ultrasonic1:ECHO", "uno:6", "gold", [ "v86.4", "h104.8" ] ],
+    [ "ultrasonic2:TRIG", "uno:5", "green", [ "v86.4", "h-106" ] ],
+    [ "ultrasonic2:ECHO", "uno:4", "gold", [ "v96", "h-106.4" ] ],
+    [ "ultrasonic2:VCC", "bb1:tp.24", "red", [ "v9.6", "h57.6" ] ],
+    [ "ultrasonic1:VCC", "bb1:tp.23", "red", [ "v19.2", "h508.8" ] ],
+    [ "oled1:SDA", "uno:A4", "green", [ "v-67.2", "h-259.13" ] ],
+    [ "oled1:SCL", "uno:A5", "blue", [ "v-57.6", "h-28.5" ] ],
+    [ "oled1:VCC", "bb1:bp.24", "red", [ "v-48", "h0.15" ] ],
+    [ "oled1:GND", "uno:GND.3", "black", [ "v-28.8", "h-297.6" ] ],
+    [ "bb1:9t.b", "uno:3", "blue", [ "v-19.2", "h-172.8" ] ],
+    [ "bb1:22t.b", "uno:2", "red", [ "v-28.8", "h-9.6" ] ],
+    [ "bb1:15b.j", "bb1:bn.12", "black", [ "v0" ] ],
+    [ "bb1:28b.j", "bb1:bn.23", "black", [ "v0" ] ],
+    [ "bb1:20b.i", "bb1:bp.22", "red", [ "v0" ] ],
+    [ "bb1:7b.i", "bb1:bp.5", "red", [ "v0" ] ],
+    [ "btn1:1.l", "bb1:9t.c", "", [ "$bb" ] ],
+    [ "btn1:2.l", "bb1:7t.c", "", [ "$bb" ] ],
+    [ "btn1:1.r", "bb1:9b.h", "", [ "$bb" ] ],
+    [ "btn1:2.r", "bb1:7b.h", "", [ "$bb" ] ],
+    [ "btn2:1.l", "bb1:20b.h", "", [ "$bb" ] ],
+    [ "btn2:2.l", "bb1:22b.h", "", [ "$bb" ] ],
+    [ "btn2:1.r", "bb1:20t.c", "", [ "$bb" ] ],
+    [ "btn2:2.r", "bb1:22t.c", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:9b.i", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:15b.i", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:22b.i", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:28b.i", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
